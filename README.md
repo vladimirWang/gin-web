@@ -5,6 +5,7 @@ go mod init exchange_app
 ## 安装依赖
 go get -u github.com/gin-gonic/gin
 go get github.com/spf13/viper
+go get -u gorm.io/gorm
 
 ## yml格式
 ![alt text](noteimgs/image.png)
