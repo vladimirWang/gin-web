@@ -1,0 +1,7 @@
+@base=http://localhost:3000
+
+### main
+GET {{base}}/ping
+
+### login
+POST {{base}}/api/auth/login
