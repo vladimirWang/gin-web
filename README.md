@@ -6,6 +6,8 @@ go mod init exchange_app
 go get -u github.com/gin-gonic/gin
 go get github.com/spf13/viper
 go get -u gorm.io/gorm
+go get -u golang.org/x/crypto/bcrypt
+go get github.com/golang-jwt/jwt/v5
 
 ## yml格式
 ![alt text](noteimgs/image.png)
