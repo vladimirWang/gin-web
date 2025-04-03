@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"exchange_app/global"
 	"exchange_app/models"
 	"exchange_app/utils"
 	"net/http"
@@ -24,7 +25,15 @@ func Register(ctx *gin.Context) {
 	token, err := utils.GenerateJWT((user.Username))
 
 	if err != nil {
-		ctx.JSON(500, gin.H{"error": err.Error()})
+		ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+	if err := global.Db.AutoMigrate(&user); err != nil {
+		ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+	if err := global.Db.Create(&user).Error; err != nil {
+		ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
 	ctx.JSON(200, gin.H{"token": token})

@@ -6,4 +6,12 @@ GET {{base}}/ping
 ### login
 POST {{base}}/api/auth/login
 
-  dsn: root:123456@tcp(127.0.0.1:3306)/current_exchange?charset=utf8mb4&parseTime=True&loc=Local
+
+### register
+POST {{base}}/api/auth/register
+Content-Type: application/json
+
+{
+    "username": "mike",
+    "password": "123123"
+}

@@ -1,6 +1,7 @@
 package router
 
 import (
+	"exchange_app/controllers"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -15,7 +16,7 @@ func SetupRouter() *gin.Engine {
 				"msg": "login",
 			})
 		})
-		auth.POST("/register")
+		auth.POST("/register", controllers.Register)
 	}
 	return r
 }
