@@ -4,6 +4,7 @@
 GET {{base}}/ping
 
 ### login
+# @name loginAPI
 POST {{base}}/api/auth/login
 Content-Type: application/json
 
@@ -11,7 +12,8 @@ Content-Type: application/json
     "username": "mike",
     "password": "123123"
 }
-
+### getToken
+@token = {{loginAPI.response.body.token}}
 
 ### register
 POST {{base}}/api/auth/register
@@ -20,4 +22,16 @@ Content-Type: application/json
 {
     "username": "mike",
     "password": "123123"
+}
+
+### createExchangeRate
+POST {{base}}/api/exchangeRates
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+    "FromCurrency": "USD",
+    "ToCurrency": "EUR",
+    "rate": 0.85,
+    "Date": "2023-10-01T00:00:00Z"
 }
