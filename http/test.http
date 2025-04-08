@@ -20,7 +20,7 @@ POST {{base}}/api/auth/register
 Content-Type: application/json
 
 {
-    "username": "mike",
+    "username": "mike333",
     "password": "123123"
 }
 
